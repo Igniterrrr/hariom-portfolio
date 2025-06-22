@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hari Om G Kumar | Portfolio</title>
+  <!-- AOS Scroll Animation -->
+<link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Nunito:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', 'Nunito', sans-serif;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+      background: linear-gradient(to right, #020024, #090979, #00d4ff);
+    }
+    
+    .dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 1.4rem;
+  background: white;
+  color: #222;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode .container,
+body.dark-mode .gallery-section {
+  background-color: #1f1f1f;
+  color: #eee;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: #444;
+}
+    
+    .hero {
+      min-height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-title {
+      font-size: 6rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      max-width: 900px;
+      margin-bottom: 30px;
+    }
+
+    .hero-icons {
+      display: flex;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .hero-icons a {
+      color: white;
+      border: 3px solid white;
+      border-radius: 50%;
+      width: 75px;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .hero-icons a:hover {
+      background: white;
+      color: #00d4ff;
+      transform: scale(1.1);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .hero-buttons a {
+      background: white;
+      color: black;
+      padding: 14px 32px;
+      font-size: 1.2rem;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .container {
+      background: white;
+      color: #333;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 950px;
+      margin: 0 auto 50px;
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid crimson;
+      margin-bottom: 20px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .skill-icons img {
+      width: 70px;
+      height: 70px;
+    }
+
+    .gallery-section {
+      background: white;
+      color: #333;
+      padding: 80px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery-section h1 {
+      font-size: 2.6rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .gallery-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 60px;
+      gap: 40px;
+    }
+
+    .gallery-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .gallery-image {
+      flex: 1 1 300px;
+    }
+
+    .gallery-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .gallery-content {
+      flex: 1 1 300px;
+      text-align: left;
+    }
+
+    .gallery-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .gallery-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .gallery-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .gallery-tech img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 450px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .video-wrapper iframe {
+    height: 280px;
+  }
+}
+
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .down-arrow {
+      font-size: 36px;
+      margin-top: 30px;
+      animation: bounce 2s infinite;
+      color: white;
+    }
+    .down-arrow:hover {
+      color: #00d4ff;
+      transform: scale(1.2);
+    }
+
+    .contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background: crimson;
+  color: white;
+  padding: 14px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #e60023;
+}
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #00d4ff;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 4rem; }
+      .hero-subtitle { font-size: 1.5rem; }
+      .hero-icons a { width: 60px; height: 60px; font-size: 24px; }
+      .hero-buttons a { padding: 12px 24px; font-size: 1rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  <button id="darkToggle" class="dark-toggle" title="Toggle Dark Mode">🌙</button>
+
+  <section class="hero">
+    <h1 class="hero-title">HARI OM G KUMAR</h1>
+    <p class="hero-subtitle">Full Stack Developer · Cloud Enthusiast · AI Explorer</p>
+
+    <div class="hero-icons">
+      <a href="https://linkedin.com/in/hariomgkumar" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/Igniterrrr" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="assets/resume.pdf" target="_blank"><i class="fas fa-file-alt"></i></a>
+      <a href="mailto:ha9445431@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#project-gallery">Projects</a>
+      <a href="#certificates">Certifications</a>
+    </div>
+
+    <a class="down-arrow" href="#about"><i class="fas fa-chevron-down"></i></a>
+  </section>
+
+  <section id="about" class="container" data-aos="fade-up">
+    <h1>About Me</h1>
+    <img src="assets/img/jpg/profile.jpg" alt="Profile" class="profile-pic">
+    <p class="about-text">
+      I'm a passionate Full Stack Developer and certified Cloud Data Engineer with a strong foundation in Java, Python, and modern web technologies.
+      Currently pursuing a BTech in Information Technology at Alliance University (CGPA: 8.35), I bring hands-on experience in mobile app development, cloud functions, real-time systems, and dashboard analytics.
+      My projects combine scalable architecture with user-focused design, and I enjoy pushing tech boundaries in AI, DevOps, and backend engineering.
+    </p>
+  </section>
+
+  <!-- 🔹 Intro Video -->
+<section class="gallery-section" id="video" data-aos="zoom-in">
+  <h1>Intro Video</h1>
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/PnCiFq9owiw" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+
+  <section id="skills" class="container" data-aos="fade-right">
+    <h1>Tech Stack</h1>
+    <div class="skills-grid">
+      <div>
+        <h3>Languages</h3>
+        <div class="skill-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+        </div>
+      </div>
+      <div>
+        <h3>Frontend</h3>
+        <div class="skill-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+        </div>
+      </div>
+      <div>
+        <h3>Backend & Cloud</h3>
+        <div class="skill-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
+        </div>
+      </div>
+      <div>
+        <h3>Tools</h3>
+        <div class="skill-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kafka/kafka-original.svg" />
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- 🔹 Project Gallery -->
+<section class="gallery-section" id="project-gallery" data-aos="fade-up">
+  <h1>Project Gallery</h1>
+
+  <div class="gallery-item">
+    <div class="gallery-image">
+      <img src="assets/projects/smart-bus.jpg" alt="Smart Bus App">
+    </div>
+    <div class="gallery-content">
+      <h3>Smart Bus Ticketing System</h3>
+      <p>Offline-first QR-based ticketing system for conductors and passengers. Supports fare sync and wallet integration using Flutter & Firebase.</p>
+      <div class="gallery-tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="gallery-image">
+      <img src="assets/projects/jan-aushadhi.jpg" alt="Jan Aushadhi Dashboard">
+    </div>
+    <div class="gallery-content">
+      <h3>Jan Aushadhi Dashboard</h3>
+      <p>Healthcare inventory platform with real-time medicine tracking using Spring Boot, Kafka, and Tableau.</p>
+      <div class="gallery-tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kafka/kafka-original.svg" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="gallery-image">
+      <img src="assets/projects/cloudshare.jpg" alt="Cloud Share App">
+    </div>
+    <div class="gallery-content">
+      <h3>Cloud File Share App</h3>
+      <p>Secure file-sharing mobile app using Firebase Auth, Cloud Functions & Storage. Generates expiring download links with access control.</p>
+      <div class="gallery-tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 Certifications Section -->
+<section class="gallery-section" id="certificates" data-aos="fade-left">
+  <h1>Certifications</h1>
+
+  <div class="gallery-item">
+    <div class="gallery-image">
+      <img src="assets/certificates/gcloud-cert.jpg" alt="Google Cloud">
+    </div>
+    <div class="gallery-content">
+      <h3>Google Cloud Certified: Cloud Data Engineer</h3>
+      <p>Official certification by Google, validating advanced knowledge in data pipelines, cloud storage, and processing infrastructure. Earned April 2024.</p>
+    </div>
+  </div>
+
+  <div class="gallery-item">
+    <div class="gallery-image">
+      <img src="assets/certificates/azure.jpg" alt="Azure Certificate">
+    </div>
+    <div class="gallery-content">
+      <h3>Intro to Microsoft Azure</h3>
+      <p>Azure fundamentals certification by Microsoft. Focused on cloud concepts, services, security, and deployment models. Earned September 2024.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 Particles.js Config -->
+<script>
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3, random: true },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#ffffff",
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        out_mode: "bounce"
+      }
+    },
+    interactivity: {
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+      },
+      modes: {
+        repulse: { distance: 100 },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+</script>
+
+<!-- 🔹 Contact Form -->
+<section class="gallery-section" id="contact" data-aos="zoom-in-up">
+  <h1>Contact Me</h1>
+  <form action="https://formspree.io/f/yourformID" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+<!-- 🔹 Footer -->
+<footer style="text-align:center; padding: 30px 10px; font-size: 1rem; background: #ffffff; color: #333;">
+  Made with ❤️ by <strong>Hari Om G Kumar</strong>
+</footer>
+
+<script>
+  const toggle = document.getElementById('darkToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+</script>
+
+</body>
+</html>
